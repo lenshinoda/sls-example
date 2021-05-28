@@ -29,11 +29,14 @@ jobs:
           az storage -h
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '10.x'
+    
+    - name: Install Serverless Framework
+      run: npm install -g serverless
 
-    - run: npm ci
+    - run: npm install
 
 
     - name: serverless deploy
