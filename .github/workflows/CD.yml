@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: ['10.x']
     steps:
 
     - uses: actions/checkout@master
@@ -29,7 +29,7 @@ jobs:
           az storage -h
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
 
@@ -38,8 +38,7 @@ jobs:
 
     - name: serverless deploy
       uses: serverless/github-action@master
-      with:
-        node-version: ${{ matrix.node-version }} 
+      with: 
         args: deploy
       env:
         AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
