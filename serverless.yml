@@ -83,7 +83,7 @@ package:
 
 functions:
   hello:
-    handler: src/handlers/hello.main
+    handler: src/handlers/httpB/__init__.py
     events:
       - http: true
         methods:
@@ -91,7 +91,7 @@ functions:
         authLevel: anonymous
 
   goodbye:
-    handler: src/handlers/goodbye.main
+    handler: src/handlers/httpA/__init__.py
     events:
       - http: true
         methods:
