@@ -31,7 +31,7 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
-        node-version: '10.x'
+        node-version: ${{ matrix.node-version }}
     
     - name: Install Serverless Framework
       run: npm install -g serverless
@@ -40,9 +40,7 @@ jobs:
 
 
     - name: serverless deploy
-      uses: serverless/github-action@master
-      with: 
-        args: deploy
+      run: sls deploy
       env:
         AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
