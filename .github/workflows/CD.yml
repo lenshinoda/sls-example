@@ -41,6 +41,7 @@ jobs:
     - name: serverless deploy
       uses: serverless/github-action@master
       with:
+        node-version: ${{ matrix.node-version }} 
         args: deploy
       env:
         AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
