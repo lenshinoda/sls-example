@@ -76,6 +76,7 @@ package:
     - '!package-lock.json'
     - '!.gitignore'
     - '!.git/**'
+    - 'venv'
   # - '!exclude-me.py'
   # - '!exclude-me-dir/**'
   #   - include-me.py
@@ -83,7 +84,7 @@ package:
 
 functions:
   hello:
-    handler: src/handlers/httpB/__init__.py
+    handler: __init__.py
     events:
       - http: true
         methods:
